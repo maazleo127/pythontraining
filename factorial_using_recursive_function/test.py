@@ -18,13 +18,14 @@
 #         m.append(l[i])
 #     i+=1
 # print(m)
-# def add(*args):
-#     sum = 0
-#     for i in args:
-#         sum += i
-#     return sum
-# a=add(5,6,5,6,7,8,10)
-# print(a)
+def add(*args):
+    print(args)
+    sum = 0
+    for i in args:
+        sum += i
+    return sum
+a=add(5,6,5,6,7,8,10)
+print(a)
 # z = [i for i in [1,2,3,4,5,6,7,8,9,10]]
 # a=["a",1,2,3,"b","c"]
 # b=[]
