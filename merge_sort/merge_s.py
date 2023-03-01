@@ -31,7 +31,7 @@ def merge(a,s,m,e):
         k +=1
     while j<n2:
         a[k]=R[j]
-        j +=1s
+        j +=s
         k +=1
 
 num=[66 ,55, 44, 33 ,22 ,11 ]
