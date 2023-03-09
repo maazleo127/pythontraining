@@ -31,3 +31,9 @@
 # # print(list_two)
 # num=complex(1,5)
 # print(num)
+
+for i in range(1,11):  #outerloop
+    for j in range(1,11): #inner loop
+        print(i*j,end=" , ")
+    print() #outer loop
+    
