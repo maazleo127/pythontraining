@@ -13,6 +13,7 @@ from django.http import JsonResponse
 from .models import Poll
 
 def polls_list(request):
+    print("======================")
     MAX_OBJECTS = 20
     polls = Poll.objects.all()[:MAX_OBJECTS]
     data = {"results": list(polls.values("question", "created_by__username", "pub_date"))}
