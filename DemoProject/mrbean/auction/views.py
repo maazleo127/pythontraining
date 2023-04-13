@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
-from .models import Poll
+from .models import User, Auction ,Bids
 # Create your views here.
 def polls_list(request):
     MAX_OBJECTS = 20
