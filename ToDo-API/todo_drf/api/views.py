@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import TaskSerializer
 from .models import Task
-
+from rest_framework.authtoken.models import Token
 
 # Create your views here.
 @api_view(['GET'])
@@ -16,6 +16,10 @@ def apiOverview(request):
         'Delete' : '/task-delete/<str:pk>/',
     }
     return Response(api_urls)
+
+class RegisterUser(APIView):
+    def post(self,request):
+        pass
 
 @api_view(['GET'])
 def taskList(request):
