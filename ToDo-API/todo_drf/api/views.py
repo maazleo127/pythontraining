@@ -2,8 +2,11 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import TaskSerializer
+from .serializers import UserSerializer
 from .models import Task
 from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
+from rest_framework.views import APIView
 
 # Create your views here.
 @api_view(['GET'])
@@ -18,8 +21,16 @@ def apiOverview(request):
     return Response(api_urls)
 
 class RegisterUser(APIView):
-    def post(self,request):
-        pass
+    def get(self,request):
+    # def post(self,request):
+        serializer=UserSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            return Response({'status':403,'errors':serializer.error_messages})
+        serializer.save()
+        user = User.objects.get(username= serializer.data['username'])
+        token_obj,_ = Token.objects.create(user=user)
+        return Response ({'status':200,'payload':serializer.data,'token':str(token_obj)})    
 
 @api_view(['GET'])
 def taskList(request):
